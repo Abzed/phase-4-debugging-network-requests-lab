@@ -1,4 +1,5 @@
 class ToysController < ApplicationController
+  # byebug
   wrap_parameters format: []
 
   def index
@@ -7,7 +8,9 @@ class ToysController < ApplicationController
   end
 
   def create
-    toy = Toys.create(toy_params)
+    
+    toy = Toy.create(toy_params)
+    # byebug
     render json: toy, status: :created
   end
 

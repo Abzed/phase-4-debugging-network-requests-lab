@@ -6,6 +6,9 @@ function ToyCard({ toy, onDeleteToy, onUpdateToy }) {
   function handleDeleteClick() {
     fetch(`/toys/${id}`, {
       method: "DELETE",
+      headers: {
+        'content-type': 'application/json'
+      }
     }).then((r) => {
       if (r.ok) {
         onDeleteToy(toy);
@@ -15,7 +18,7 @@ function ToyCard({ toy, onDeleteToy, onUpdateToy }) {
 
   function handleLikeClick() {
     const updateObj = {
-      likes: toy.likes + 1,
+      likes: toy.likes += 1,
     };
 
     fetch(`/toys/${id}`, {
